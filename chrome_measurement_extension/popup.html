@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --danger: #ef4444;
+      --danger-hover: #dc2626;
+      --background: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+    }
+
+    body {
+      width: 380px;
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0 0 1.5rem 0;
+      color: var(--text);
+    }
+
+    .conversion-group {
+      background: var(--card);
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+    }
+
+    .conversion-group:hover {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .conversion-row {
+      display: flex;
+      align-items: center;
+      margin: 0.75rem 0;
+      gap: 0.5rem;
+    }
+
+    select {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      background-color: var(--card);
+      font-size: 0.875rem;
+      color: var(--text);
+      transition: border-color 0.2s ease;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    }
+
+    .add-button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .add-button:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .remove-button {
+      padding: 0.5rem 0.75rem;
+      background-color: transparent;
+      color: var(--danger);
+      border: 1px solid var(--danger);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.875rem;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .remove-button:hover {
+      background-color: var(--danger);
+      color: white;
+    }
+
+    .enabled-checkbox {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: 0.75rem;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 3rem;
+      height: 1.5rem;
+      margin-right: 0.75rem;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--border);
+      transition: .4s;
+      border-radius: 1.5rem;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 1.25rem;
+      width: 1.25rem;
+      left: 0.125rem;
+      bottom: 0.125rem;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(1.5rem);
+    }
+  </style>
+</head>
+<body>
+  <h3>Measurement Converter</h3>
+  <div id="conversions-container"></div>
+  <button id="addConversion" class="add-button">Add New Conversion</button>
+  <script src="popup.js"></script>
+</body>
+</html>
