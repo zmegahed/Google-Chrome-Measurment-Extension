@@ -24,24 +24,27 @@ const CONVERSION_FACTORS = {
   'milliliters-fluid ounces': (x) => x * 0.033814
 };
 
-const UNIT_PATTERNS = {
-  'miles': /(\d+(?:\.\d+)?)\s*(?:miles?|mi)/i,
-  'kilometers': /(\d+(?:\.\d+)?)\s*(?:kilometers?|km)/i,
-  'meters': /(\d+(?:\.\d+)?)\s*(?:meters?|m)/i,
-  'feet': /(\d+(?:\.\d+)?)\s*(?:feet|foot|ft)/i,
-  'inches': /(\d+(?:\.\d+)?)\s*(?:inches?|in)/i,
-  'centimeters': /(\d+(?:\.\d+)?)\s*(?:centimeters?|cm)/i,
-  'pounds': /(\d+(?:\.\d+)?)\s*(?:pounds?|lbs?)/i,
-  'kilograms': /(\d+(?:\.\d+)?)\s*(?:kilograms?|kg)/i,
-  'ounces': /(\d+(?:\.\d+)?)\s*(?:ounces?|oz)/i,
-  'grams': /(\d+(?:\.\d+)?)\s*(?:grams?|g)/i,
-  'Fahrenheit': /(\d+(?:\.\d+)?)\s*°?F/i,
-  'Celsius': /(\d+(?:\.\d+)?)\s*°?C/i,
-  'Kelvin': /(\d+(?:\.\d+)?)\s*K/i,
-  'gallons': /(\d+(?:\.\d+)?)\s*(?:gallons?|gal)/i,
-  'liters': /(\d+(?:\.\d+)?)\s*(?:liters?|L)/i,
-  'milliliters': /(\d+(?:\.\d+)?)\s*(?:milliliters?|mL)/i,
-  'fluid ounces': /(\d+(?:\.\d+)?)\s*(?:fluid ounces?|fl\.? oz)/i
+const unitPatterns = {
+  miles: /(\d+\.?\d*) ?(mile|miles|mi)/i,
+  kilometers: /(\d+\.?\d*) ?(kilometer|kilometers|km)/i,
+  meters: /(\d+\.?\d*) ?(meter|meters|m)/i,
+  feet: /(\d+\.?\d*) ?(foot|feet|ft)/i,
+  inches: /(\d+\.?\d*) ?(inch|inches|in)/i,
+  centimeters: /(\d+\.?\d*) ?(centimeter|centimeters|cm)/i,
+  
+  pounds: /(\d+\.?\d*) ?(pound|pounds|lb|lbs)/i,
+  kilograms: /(\d+\.?\d*) ?(kilogram|kilograms|kg)/i,
+  ounces: /(\d+\.?\d*) ?(ounce|ounces|oz)/i,
+  grams: /(\d+\.?\d*) ?(gram|grams|g)/i,
+  
+  fahrenheit: /(\d+\.?\d*) ?(F|°F)/i,
+  celsius: /(\d+\.?\d*) ?(C|°C)/i,
+  kelvin: /(\d+\.?\d*) ?K/i,
+  
+  gallons: /(\d+\.?\d*) ?(gallon|gallons|gal)/i,
+  liters: /(\d+\.?\d*) ?(liter|liters|L)/i,
+  milliliters: /(\d+\.?\d*) ?(milliliter|milliliters|ml|mL)/i,
+  fluidOunces: /(\d+\.?\d*) ?(fluid ounce|fluid ounces|fl oz|floz)/i
 };
 
 function convertText(text, conversions) {
